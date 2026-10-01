@@ -47,6 +47,16 @@ Reinicie o Claude Code e confira com `claude mcp list`. Alternativamente, copie 
 
 > **Feche o Chrome por completo antes de usar** — o Playwright precisa de acesso exclusivo ao perfil.
 
+### Chrome 136+: use uma cópia do perfil
+
+O Chrome 136+ **recusa automação no diretório de dados padrão** (`DevTools remote debugging requires a non-default data directory`). Por isso, aponte `CHROME_USER_DATA_DIR` para uma cópia do perfil. No Windows, com o Chrome fechado:
+
+```powershell
+./scripts/copy-chrome-profile.ps1     # copia para %USERPROFILE%\.browser-mcp-profile
+```
+
+A cópia mantém cookies e logins do momento da cópia; rode o script de novo para atualizar as sessões. A cópia contém dados sensíveis (sessões): mantenha-a fora de repositórios e de pastas sincronizadas. Em macOS/Linux, copie o diretório do perfil manualmente para outro caminho.
+
 ## Configuração
 
 Tudo por variáveis de ambiente (ver [.env.example](.env.example)):
@@ -92,7 +102,7 @@ Mais em [docs/architecture.md](docs/architecture.md) e [CONTRIBUTING.md](CONTRIB
 ## Limitações conhecidas
 
 - O Chrome deve estar **fechado** quando o servidor iniciar (conflito de perfil).
-- Chrome 136+ pode recusar automação sobre o diretório de dados **padrão**. Se falhar, copie o perfil para outra pasta e aponte `CHROME_USER_DATA_DIR` para ela.
+- Chrome 136+ recusa automação sobre o diretório de dados **padrão**: use uma cópia do perfil (ver acima). Sessões na cópia não se sincronizam com o seu Chrome do dia a dia.
 - Páginas com 2FA exigem intervenção manual prévia.
 - Sites com anti-bot pesado (ex.: Cloudflare challenge) podem bloquear.
 - Uma única aba ativa; sem suporte a múltiplas abas.
