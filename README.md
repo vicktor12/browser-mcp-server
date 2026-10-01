@@ -31,8 +31,9 @@ Detalhes de parâmetros em [docs/tools.md](docs/tools.md).
 git clone https://github.com/vicktor12/browser-mcp-server.git
 cd browser-mcp-server
 npm install
-cp .env.example .env   # e preencha CHROME_USER_DATA_DIR
 ```
+
+A configuração do servidor é passada pelo próprio registro no Claude Code (`-e VAR=valor`, abaixo). O `.env` (`cp .env.example .env`) só é lido quando o servidor roda **a partir da pasta do projeto** (ex.: `npm run test:e2e`); quando o Claude Code o inicia, o diretório de trabalho é outro e o `.env` é ignorado.
 
 ### Registrar no Claude Code
 
@@ -43,7 +44,7 @@ claude mcp add browser --scope user \
   -- node "<caminho absoluto>/browser-mcp-server/index.js"
 ```
 
-Reinicie o Claude Code e confira com `claude mcp list`. Alternativamente, copie `claude-settings.example.json` para `.claude/settings.json` e ajuste o caminho.
+Reinicie o Claude Code e confira com `claude mcp list`. Alternativamente, copie `claude-settings.example.json` para `.mcp.json` na raiz do seu projeto (configuração de MCP por projeto) e ajuste o caminho.
 
 > **Feche o Chrome por completo antes de usar** — o Playwright precisa de acesso exclusivo ao perfil.
 
@@ -88,6 +89,8 @@ Risco identificado: nenhum. Credenciais: não serão inseridas nesta sessão.
 ```
 
 Sem o marcador (ou com qualquer padrão de risco) o guard bloqueia a chamada e devolve um erro descritivo.
+
+**Login:** o guard bloqueia campos de senha/token (`password`, `secret`, `token`...). Faça login no site manualmente na cópia do perfil (ou deixe a sessão já salva nela) e só então peça ao agente para operar. O agente não digita credenciais.
 
 ## Desenvolvimento
 
