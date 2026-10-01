@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "browser": {
+      "command": "node",
+      "args": ["CAMINHO_ABSOLUTO/browser-mcp-server/index.js"],
+      "env": {
+        "CHROME_USER_DATA_DIR": "",
+        "CHROME_PROFILE": "Default",
+        "BROWSER_HEADLESS": "false",
+        "BROWSER_TIMEOUT": "15000",
+        "BLOCKED_DOMAINS": "banco,pagamento,financeiro,pix,transferencia"
+      }
+    }
+  }
+}
