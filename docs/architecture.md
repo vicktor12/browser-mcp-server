@@ -31,7 +31,7 @@ export async function handler(input) { /* validate(...) -> ação -> objeto seri
 
 - `index.js` faz `schema.parse(args)` (aplica defaults e rejeita input inválido) e só então chama `handler`.
 - O `handler` retorna um objeto; o `index.js` o serializa como JSON no `content` da resposta.
-- Para adicionar uma tool: criar o arquivo em `tools/`, importá-lo no array de `index.js` e cobrir o schema em `test/unit/schemas.test.js`.
+- Para adicionar uma tool: criar o arquivo em `tools/`, importá-lo no array de `index.js` e cobrir o schema em `test/schemas.test.js`.
 
 ## Decisões de design
 

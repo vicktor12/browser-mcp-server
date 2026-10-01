@@ -2,7 +2,7 @@
 
 1. Faça um fork/branch a partir de `main`.
 2. `npm install`
-3. Faça a mudança com testes (`test/unit/`). Mudanças no guard **precisam** de teste para o caso bloqueado e para o caso permitido.
+3. Faça a mudança com testes (`test/`). Mudanças no guard **precisam** de teste para o caso bloqueado e para o caso permitido.
 4. Antes de abrir o PR: `npm run lint && npm test`.
 5. Commits curtos e no imperativo (ex.: `Bloqueia extensão .p12 no guard`).
 

@@ -1,12 +1,12 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import { z } from "zod";
-import * as navigate from "../../tools/navigate.js";
-import * as click from "../../tools/click.js";
-import * as fill from "../../tools/fill.js";
-import * as screenshot from "../../tools/screenshot.js";
-import * as readPage from "../../tools/read_page.js";
-import * as waitFor from "../../tools/wait_for.js";
+import * as navigate from "../tools/navigate.js";
+import * as click from "../tools/click.js";
+import * as fill from "../tools/fill.js";
+import * as screenshot from "../tools/screenshot.js";
+import * as readPage from "../tools/read_page.js";
+import * as waitFor from "../tools/wait_for.js";
 
 const T = "[AGENT-BROWSER-TASK] x";
 const tools = [navigate, click, fill, screenshot, readPage, waitFor];

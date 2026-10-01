@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { validate } from "../../security/guard.js";
+import { validate } from "../security/guard.js";
 
 const TASK = "[AGENT-BROWSER-TASK] teste unitário";
 let logFile;
